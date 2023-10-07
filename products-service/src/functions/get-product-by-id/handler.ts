@@ -14,7 +14,7 @@ type Product = {
 
 const findProduct = (id: string) => (product: Product) => product.id === id;
 
-const getProduct: ValidatedEventAPIGatewayProxyEvent<
+const getProductById: ValidatedEventAPIGatewayProxyEvent<
   typeof schema
 > = async event => {
   const product =
@@ -22,4 +22,4 @@ const getProduct: ValidatedEventAPIGatewayProxyEvent<
   return formatJSONResponse(product);
 };
 
-export const main = middyfy(getProduct);
+export const main = middyfy(getProductById);
