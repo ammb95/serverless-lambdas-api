@@ -1,0 +1,6 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"Title\": \"Test Laptop\", \"Description\": \"Test Laptop\", \"Image\": \"https://s13emagst.akamaized.net/products/40944/40943597/images/res_03537174a02dd62a82294b6a09d40fd0.jpg?width=450&height=450&hash=840EE7BE2659EE66E7C07859F34B77D0\", \"Price\": \"1000\"}"
+}
