@@ -13,3 +13,7 @@ https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products
 #### getProductById
 
 https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products/{id}
+
+#### createProducts
+
+https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products/
