@@ -1,0 +1,44 @@
+[
+  {
+    "id": "8703d311-5c0e-4393-8101-26e3f2f3e2d6",
+    "title": "MacBook Air",
+    "description": "The MacBook Air is a thin and light laptop with a powerful M1 chip. It has a long battery life and a beautiful Retina display.",
+    "price": 999.99,
+    "img": "https://i.ytimg.com/vi/-ZY2cJ4QYps/maxresdefault.jpg"
+  },
+  {
+    "id": "e5461d77-623b-425f-9087-d3e8e0d3f878",
+    "title": "Microsoft Surface Laptop 4",
+    "description": "The Microsoft Surface Laptop 4 is a versatile laptop with a beautiful PixelSense display. It comes with Windows 11 Home and a variety of powerful processors.",
+    "price": 1299.99,
+    "img": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6455/6455204_sd.jpg"
+  },
+  {
+    "id": "010407de-9222-4c90-9869-b487023221c1",
+    "title": "Dell XPS 13",
+    "description": "The Dell XPS 13 is a thin and light laptop with a powerful Intel Core i5 processor. It has a long battery life and a beautiful InfinityEdge display.",
+    "price": 999.99,
+    "img": "https://i.dell.com/sites/csimages/product/2022/01/xps-13-9315/xps-13-9315-4_01.jpg"
+  },
+  {
+    "id": "94885e57-17b8-4773-93b2-29207d4f4687",
+    "title": "Lenovo ThinkPad X1 Carbon",
+    "description": "The Lenovo ThinkPad X1 Carbon is a durable and reliable laptop with a powerful Intel Core i7 processor. It has a long battery life and a beautiful IPS display.",
+    "price": 1599.99,
+    "img": "https://cdn.lenovo.com/us/en/images/product/laptop/thinkpad-x1-carbon-gen-10-(14-inch-intel)/thinkpad-x1-carbon-gen-10-(14-inch-intel)_front_hero.png"
+  },
+  {
+    "id": "8b20c505-531c-4f9b-87b6-9a0344e14e62",
+    "title": "HP Spectre x360",
+    "description": "The HP Spectre x360 is a versatile laptop with a beautiful OLED display. It comes with Windows 11 Home and a variety of powerful processors.",
+    "price": 1299.99,
+    "img": "https://reviewed.usatoday.com/wp-content/uploads/sites/5/2022/03/HP-Spectre-x360-14-2022-front-view-1000x600.jpg"
+  },
+  {
+    "id": "0f7f383f-4f0e-4248-9486-33b987816999",
+    "title": "Asus ZenBook 13",
+    "description": "The Asus ZenBook 13 is a thin and light laptop with a powerful Intel Core i5 processor. It has a long battery life and a beautiful NanoEdge display.",
+    "price": 799.99,
+    "img": "https://www.asus.com/media/global/products/j513/P1434516598353.jpg"
+  }
+]
