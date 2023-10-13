@@ -8,8 +8,8 @@
 
 #### getProductsList
 
-https://wm2da067qj.execute-api.us-east-1.amazonaws.com/dev/products/
+https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products
 
 #### getProductById
 
-https://wm2da067qj.execute-api.us-east-1.amazonaws.com/dev/products/{id}
+https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products/{id}
