@@ -39,7 +39,7 @@ const getProductById: ValidatedEventAPIGatewayProxyEvent<
 
     const stockResult = await dynamodb.query(stockParams).promise();
 
-    product.count = stockResult.Items[0].Count;
+    product.Count = stockResult.Items[0].Count;
 
     return formatJSONResponse({
       product
