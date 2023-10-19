@@ -1,13 +1,11 @@
 import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
 import { formatJSONResponse } from '@libs/api-gateway';
-import { middyfy } from '@libs/lambda';
 import { S3 } from 'aws-sdk';
-import schema from './schema';
 import { BUCKET_NAME } from 'src/constants';
 import { getKey } from '@libs/get-key';
 
 const importProductsFile: ValidatedEventAPIGatewayProxyEvent<
-  typeof schema
+  unknown
 > = async event => {
   if (!event.queryStringParameters.name) {
     return formatJSONResponse({
@@ -33,4 +31,4 @@ const importProductsFile: ValidatedEventAPIGatewayProxyEvent<
   });
 };
 
-export const main = middyfy(importProductsFile);
+export const main = importProductsFile;

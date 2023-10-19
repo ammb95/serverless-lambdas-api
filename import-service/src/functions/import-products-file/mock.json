@@ -4,6 +4,5 @@
   },
   "queryStringParameters": {
     "name": "my-csv-file"
-  },
-  "body": "{}"
+  }
 }
