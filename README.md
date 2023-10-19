@@ -1,19 +1,12 @@
-## What was done?
+### Services implemented
 
-- Products service is implemented and deployed to aws lambda
-- Mock data added via json file. Products are laptops
-- Required functions implemented
+#### Products Service
 
-### Functions implemented
+- getProductsList: https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products
+- getProductById: https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products/{id}
+- createProducts: https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products/
 
-#### getProductsList
+#### Import Service
 
-https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products
-
-#### getProductById
-
-https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products/{id}
-
-#### createProducts
-
-https://z1ejynb0d6.execute-api.us-east-1.amazonaws.com/dev/products/
+- importProductsFile: https://mvy3p6kxdj.execute-api.us-east-1.amazonaws.com/dev/import/${name}
+- importFileParser: No URL
