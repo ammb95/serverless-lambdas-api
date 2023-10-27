@@ -1,6 +1,5 @@
 import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
 import { formatJSONResponse } from '@libs/api-gateway';
-import { middyfy } from '@libs/lambda';
 import AWS from 'aws-sdk';
 
 const getProductsList: ValidatedEventAPIGatewayProxyEvent<
@@ -42,4 +41,4 @@ const getProductsList: ValidatedEventAPIGatewayProxyEvent<
   }
 };
 
-export const main = middyfy(getProductsList);
+export const main = getProductsList;

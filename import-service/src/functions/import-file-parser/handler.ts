@@ -1,8 +1,9 @@
 import { S3 } from 'aws-sdk';
 import { BUCKET_NAME } from 'src/constants';
 import csv from 'csv-parser';
+import { S3Event } from 'aws-lambda';
 
-const importFileParser = async event => {
+const importFileParser = async (event: S3Event) => {
   const s3 = new S3({ region: 'us-east-1' });
 
   try {
