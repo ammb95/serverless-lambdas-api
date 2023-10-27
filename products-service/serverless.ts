@@ -27,7 +27,14 @@ const serverlessConfiguration: AWS = {
     },
     iam: {
       role: {
-        managedPolicies: ['arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess']
+        managedPolicies: ['arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess'],
+        statements: [
+          {
+            Effect: 'Allow',
+            Action: ['sns:Publish'],
+            Resource: '*'
+          }
+        ]
       }
     }
   },
