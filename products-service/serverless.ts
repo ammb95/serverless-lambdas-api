@@ -2,6 +2,7 @@ import type { AWS } from '@serverless/typescript';
 import getProductById from '@functions/get-product-by-id';
 import getProductsList from '@functions/get-products-list';
 import createProduct from '@functions/create-product';
+import catalogBatchProcess from '@functions/catalog-batch-process';
 
 const serverlessConfiguration: AWS = {
   service: 'products-service',
@@ -19,7 +20,10 @@ const serverlessConfiguration: AWS = {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
       PRODUCTS_TABLE: 'Products',
-      STOCKS_TABLE: 'Stocks'
+      STOCKS_TABLE: 'Stocks',
+      CREATE_PRODUCT_TOPIC_ARN: {
+        Ref: 'CreateProductTopic'
+      }
     },
     iam: {
       role: {
@@ -72,6 +76,28 @@ const serverlessConfiguration: AWS = {
             WriteCapacityUnits: 5
           }
         }
+      },
+      CatalogItemsQueue: {
+        Type: 'AWS::SQS::Queue',
+        Properties: {
+          QueueName: 'catalogItemsQueue'
+        }
+      },
+      CreateProductTopic: {
+        Type: 'AWS::SNS::Topic',
+        Properties: {
+          DisplayName: 'Create Product Topic'
+        }
+      },
+      CreateProductEmailSubscription: {
+        Type: 'AWS::SNS::Subscription',
+        Properties: {
+          Protocol: 'email',
+          TopicArn: {
+            Ref: 'CreateProductTopic'
+          },
+          Endpoint: 'tutubortolini@gmail.com'
+        }
       }
     }
   },
@@ -79,7 +105,8 @@ const serverlessConfiguration: AWS = {
   functions: {
     getProductsList,
     getProductById,
-    createProduct
+    createProduct,
+    catalogBatchProcess
   },
   package: { individually: true },
   custom: {
