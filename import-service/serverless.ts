@@ -2,7 +2,7 @@ import type { AWS } from '@serverless/typescript';
 
 import importProductsFile from '@functions/import-products-file';
 import importFileParser from '@functions/import-file-parser';
-import { BUCKET_ARN } from 'src/constants';
+import { BUCKET_ARN, QUEUE_ARN } from 'src/constants';
 
 const serverlessConfiguration: AWS = {
   service: 'import-service',
@@ -35,12 +35,16 @@ const serverlessConfiguration: AWS = {
             Effect: 'Allow',
             Action: 's3:*',
             Resource: [`${BUCKET_ARN}/*`]
+          },
+          {
+            Effect: 'Allow',
+            Action: ['sqs:SendMessage'],
+            Resource: QUEUE_ARN
           }
         ]
       }
     }
   },
-  // import the function via paths
   functions: { importProductsFile, importFileParser },
   package: { individually: true },
   custom: {

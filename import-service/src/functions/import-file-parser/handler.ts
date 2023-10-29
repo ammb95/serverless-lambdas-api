@@ -1,9 +1,15 @@
-import { S3 } from 'aws-sdk';
-import { BUCKET_NAME } from 'src/constants';
+import { S3, SQS } from 'aws-sdk';
+import { S3Event, S3Handler } from 'aws-lambda';
 import csv from 'csv-parser';
+import { BUCKET_NAME } from 'src/constants';
+import { moveObject } from './move-object';
+import { sendItemToQueue } from './send-item-to-queue';
+import { mapRowToProduct } from './map-row-to-product';
+import { Product } from './product.model';
 
-const importFileParser = async event => {
+const importFileParser: S3Handler = async (event: S3Event) => {
   const s3 = new S3({ region: 'us-east-1' });
+  const sqs = new SQS({ region: 'us-east-1' });
 
   try {
     for (const record of event.Records) {
@@ -14,13 +20,13 @@ const importFileParser = async event => {
 
       const s3Stream = s3.getObject(params).createReadStream();
 
-      const products = [];
+      const products: Product[] = [];
 
       await new Promise<void>((resolve, reject) => {
         s3Stream
           .pipe(csv())
           .on('data', row => {
-            products.push(row);
+            products.push(mapRowToProduct(row));
           })
           .on('end', () => {
             resolve();
@@ -31,24 +37,9 @@ const importFileParser = async event => {
           });
       });
 
-      console.log('CSV parsing complete. Products: ', products);
+      products.forEach(product => sendItemToQueue(sqs, product));
 
-      await s3
-        .copyObject({
-          Bucket: BUCKET_NAME,
-          CopySource: `${BUCKET_NAME}/${record.s3.object.key}`,
-          Key: record.s3.object.key.replace('uploaded', 'parsed')
-        })
-        .promise();
-
-      await s3
-        .deleteObject({
-          Bucket: BUCKET_NAME,
-          Key: record.s3.object.key
-        })
-        .promise();
-
-      console.log('File successfully moved to "parsed" folder!');
+      await moveObject(s3, record);
     }
   } catch (error) {
     console.error(error);
