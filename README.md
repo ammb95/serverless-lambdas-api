@@ -15,3 +15,7 @@
 
 - importProductsFile: https://mvy3p6kxdj.execute-api.us-east-1.amazonaws.com/dev/import/${name}
 - importFileParser: No URL
+
+#### Authorization Service
+
+- basicAuthorizer: No URL
