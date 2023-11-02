@@ -10,7 +10,7 @@ export default {
         path: 'import',
         cors: {
           origins: ['*'],
-          headers: ['Content-Type'],
+          headers: ['Authorization', 'Content-Type'],
           allowCredentials: false
         },
         authorizer: {
